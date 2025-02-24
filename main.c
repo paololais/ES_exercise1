@@ -11,7 +11,7 @@
 int main(void) {
     ANSELA = ANSELB = ANSELC = ANSELD = ANSELE = ANSELG = 0x0000;
     
-    bool accesa = false;
+    int accesa = 0; //default is switched off
     
     // set the pin as input
     TRISEbits.TRISE8 = 1;
@@ -30,7 +30,7 @@ int main(void) {
         }     
         */
         if(PORTEbits.RE8 == 0){
-            if(accesa){
+            if(accesa == 1){
                 LATAbits.LATA0 = 0;
             } else {
                 LATAbits.LATA0 = 1;
