@@ -9,26 +9,22 @@
 #include "xc.h"
 
 int main(void) {
-    int pinValue1 = 0;
+    ANSELA = ANSELB = ANSELC = ANSELD = ANSELE = ANSELG = 0x0000;
+    
     // set the pin as input
     TRISEbits.TRISE8 = 1;
-    
     // set the pin as output
     TRISAbits.TRISA0 = 0;
+    LATAbits.LATA0 = 0;
+
     while(1){
-        LATAbits.LATA0 = 0;
         // read button T2 RE8
-        pinValue1 = PORTEbits.RE8; 
-        if(pinValue1 == 1){ 
+        if(PORTEbits.RE8 == 0){ 
         // switch on led1 RA0
             LATAbits.LATA0 = 1;
-        }
-        
-        
-        // read button T2 RE8
-
-        // switch on led1 RA0
-        
+        } else{
+            LATAbits.LATA0 = 0;
+        }     
     }
     
     return 0;
