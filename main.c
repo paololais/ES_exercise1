@@ -32,8 +32,10 @@ int main(void) {
         if(PORTEbits.RE8 == 0){
             if(accesa == 1){
                 LATAbits.LATA0 = 0;
+                accesa == 0;
             } else {
                 LATAbits.LATA0 = 1;
+                accesa = 1;
             }
         }
     }
